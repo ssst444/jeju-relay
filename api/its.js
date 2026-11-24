@@ -29,5 +29,5 @@ module.exports = async (req, res) => {
       lastErr = String((e && e.cause && e.cause.code) || (e && e.message) || e);
     }
   }
-  res.status(502).json({ error: lastErr });
+res.status(502).json({ error: lastErr, region: process.env.VERCEL_REGION || '?' });
 };
